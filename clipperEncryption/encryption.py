@@ -8,7 +8,17 @@ from vars.seedGenVars import *
 def Encryption(word, seed):
     seeded_list = []
     encrypted_list = []
+    pop_list = []
     word_list = [char.upper() for char in word] # converts word_list to uppercase
+    for x in range(len(word_list)):
+        if word_list[x] in special_characters_list:
+            pop_list.append(x)
+
+    pop_list.sort(reverse=True)
+    for x in pop_list:
+        word_list.pop(x)
+
+
     for char in word_list:
         window = character_window_index[char] # converts each 'letter' to its alphabetical index (A = 1, B = 2, etc)
         seeded_list.append(seed[window]) 

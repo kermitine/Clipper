@@ -8,10 +8,21 @@ from vars.seedGenVars import *
 def seedGeneration(seed_word):
     seed = []
     num_dict = 1
+    pop_list = []
 
     print('Starting seed generation...')
 
     seed_word_list = [x.upper() for x in seed_word] # splits seed_word into uppercase list
+    for x in range(len(seed_word_list)):
+        if seed_word_list[x] in special_characters_list or seed_word_list[x] == ' ':
+            pop_list.append(x)
+
+    
+    pop_list.sort(reverse=True)
+
+    for x in pop_list:
+        seed_word_list.pop(x)
+
 
     if len(seed_word_list) > 26:
         print('Word sliced')
