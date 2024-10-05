@@ -11,7 +11,6 @@ def Decryption(word, seed):
     decrypted_word_list = []
     for char in word:
         letter_index_list.append(character_window_index_str[char])
-    print(letter_index_list)
     for letter_index in letter_index_list:
         for seed_index in range(len(seed)):
             print(letter_index, seed[seed_index])

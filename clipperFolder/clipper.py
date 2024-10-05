@@ -10,30 +10,39 @@ def sentenceSplitter(sentence):
     split_sentence = sentence.split()
     return split_sentence
 
+def mainClipper():
+    print('Clipper V' + version_Decryption + '-' + version_seedGen + '-' + version_Encryption + ' initialized')
 
-print('Clipper V' + version_Decryption + '-' + version_seedGen + '-' + version_Encryption + ' initialized')
+    seed_word = input('Please enter a seed word. This word will be used to encrypt and decrypt your word.' + '\n')
+    print('\n' + '\n')
 
-seed_word = input('Please enter a seed word. This word will be used to encrypt and decrypt your word.' + '\n')
-print('\n' + '\n')
+    seed = seedGeneration(seed_word)
 
-seed = seedGeneration(seed_word)
+    user_input = input('Enter e for encryption. Enter d for decryption' + '\n')
+    crypted_list = []
+    crypted_sentence = ''
 
-user_input = input('Enter e for encryption. Enter d for decryption' + '\n')
-crypted_list = []
-crypted_sentence = ''
+    if user_input in ['e', 'E']:
+        sentence = input('Enter the word you would like to encrypt' + '\n')
+        split_sentence = sentenceSplitter(sentence)
+        for word in split_sentence:
+            crypted_list.append(Encryption(word, seed))
+        crypted_sentence = " ".join(crypted_list)
+        print(crypted_sentence)
 
-if user_input in ['e', 'E']:
-    sentence = input('Enter the word you would like to encrypt' + '\n')
-    split_sentence = sentenceSplitter(sentence)
-    for word in split_sentence:
-        crypted_list.append(Encryption(word, seed))
-    crypted_sentence = " ".join(crypted_list)
-    print(crypted_sentence)
+    elif user_input in ['d', 'D']:
+        sentence = input('Enter the word you would like to decrypt' + '\n')
+        split_sentence = sentenceSplitter(sentence)
+        for word in split_sentence:
+            crypted_list.append(Decryption(word, seed))
+        crypted_sentence = " ".join(crypted_list)
+        print(crypted_sentence)
 
-elif user_input in ['d', 'D']:
-    sentence = input('Enter the word you would like to decrypt' + '\n')
-    split_sentence = sentenceSplitter(sentence)
-    for word in split_sentence:
-        crypted_list.append(Decryption(word, seed))
-    crypted_sentence = " ".join(crypted_list)
-    print(crypted_sentence)
+while True:
+    mainClipper()
+    user_code = input('Enter t to translate another sentence. Enter anything else to exit' + '\n')
+    
+    if user_code in ['t', 'T']:
+        pass
+    else:
+        break
