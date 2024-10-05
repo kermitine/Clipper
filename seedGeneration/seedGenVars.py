@@ -1,4 +1,4 @@
-version_seedGen = '1.0.0'
+version_seedGen = '2.0.0'
 
 
 
