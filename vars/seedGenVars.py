@@ -1,4 +1,4 @@
-version_clipper = '1.0.0'
+version_clipper = '1.1.0'
 version_Decryption = '1.0.0'
 version_seedGen = '2.0.0'
 version_Encryption = '2.0.0'
