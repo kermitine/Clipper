@@ -1,0 +1,4 @@
+
+
+def clipperDecryption(word, seed):
+    

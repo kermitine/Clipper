@@ -37,8 +37,10 @@ def seedGeneration(seed_word):
     print('Finalizing' + '\n')
 
     print('Generated seed:')
+    print(len(''.join(seed)))
     print(''.join(seed))
+    print(seed)
     return seed
 
 
-seedGeneration()
+seedGeneration('ilovefondlingtheballsofthirteenpersianmen')
