@@ -1,23 +1,31 @@
 import sys
 import os
+import time
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from vars.ifArray import *
 from vars.seedGenVars import *
-
+from vars.globalVars import *
 
 def seedGeneration(seed_word):
     seed = []
     num_dict = 1
     pop_list = []
+    special_chars = 0
 
     print('Starting seed generation...')
 
+    time.sleep(gap_time)
+
     seed_word_list = [x.upper() for x in seed_word] # splits seed_word into uppercase list
     for x in range(len(seed_word_list)):
-        if seed_word_list[x] in special_characters_list or seed_word_list[x] == ' ':
+        if seed_word_list[x] in special_characters_list or seed_word_list[x] == ' ' or seed_word_list[x] in nums:
+            if special_chars < 1:
+                print('Purging numbers and special characters')
             pop_list.append(x)
+            special_chars += 1
 
-    
+    time.sleep(gap_time)
+
     pop_list.sort(reverse=True)
 
     for x in pop_list:
@@ -28,6 +36,7 @@ def seedGeneration(seed_word):
         print('Word sliced')
         seed_word_list = seed_word_list[:26]
 
+    time.sleep(gap_time)
 
     seed_word_list = list(dict.fromkeys(seed_word_list))  # removes duplicate letters (no idea how this works but it does)
 
@@ -38,6 +47,7 @@ def seedGeneration(seed_word):
 
     print('Converting text to numerics')
 
+    time.sleep(gap_time)
 
     if len(seed) < 26: # if seed is not long enough
         while len(seed) < 26:
@@ -49,8 +59,9 @@ def seedGeneration(seed_word):
                 pass
             num_dict += 1
 
-    print('Finalizing' + '\n')
+    print('Verifying...')
 
-    print('Generated seed:')
-    print(''.join(seed) + '\n')
+    time.sleep(gap_time)
+
+    print('Seed generated successfully.' + '\n')
     return seed
