@@ -52,5 +52,5 @@ def seedGeneration(seed_word):
     print('Finalizing' + '\n')
 
     print('Generated seed:')
-    print(''.join(seed))
+    print(''.join(seed) + '\n')
     return seed

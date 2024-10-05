@@ -1,8 +1,3 @@
-version_clipper = '1.2.0'
-version_Decryption = '1.0.0'
-version_seedGen = '2.1.0'
-version_Encryption = '2.1.0'
-
 
 
 

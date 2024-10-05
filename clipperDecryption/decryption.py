@@ -9,6 +9,9 @@ def Decryption(word, seed):
     seed_index_list = []
     letter_index_list = []
     decrypted_word_list = []
+    
+    word = word.upper()
+    
     for char in word:
         letter_index_list.append(character_window_index_str[char])
     for letter_index in letter_index_list:
