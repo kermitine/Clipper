@@ -1,10 +1,11 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from clipperEncryption.ifArray import *
+from vars.ifArray import *
+from vars.seedGenVars import *
 
 
-def clipperDecryption(word, seed):
+def Decryption(word, seed):
     seed_index_list = []
     letter_index_list = []
     decrypted_word_list = []
@@ -24,4 +25,3 @@ def clipperDecryption(word, seed):
     return ''.join(decrypted_word_list)
 
 
-print(clipperDecryption('TYQKGSTGAAE', ['21', '07', '20', '14', '03', '04', '11', '17', '18', '25', '08', '13', '01', '15', '02', '16', '24', '26', '12', '05', '19', '23', '06', '09', '10', '22']))

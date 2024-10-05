@@ -1,4 +1,8 @@
-from seedGenVars import *
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from vars.ifArray import *
+from vars.seedGenVars import *
 
 
 def seedGeneration(seed_word):
@@ -37,10 +41,5 @@ def seedGeneration(seed_word):
     print('Finalizing' + '\n')
 
     print('Generated seed:')
-    print(len(''.join(seed)))
     print(''.join(seed))
-    print(seed)
     return seed
-
-
-seedGeneration('ilovefondlingtheballsofthirteenpersianmen')
