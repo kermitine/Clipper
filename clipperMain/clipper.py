@@ -15,6 +15,7 @@ def sentenceSplitter(sentence):
     return split_sentence
 
 def mainClipper():
+    word_count = 0
     print('Clipper V' + version_Clipper + '-' + version_Decryption + '-' + version_seedGen + '-' + version_Encryption + ' initialized' + '\n')
 
     seed_word = input('Please enter a seed word. This word will be used to encrypt and decrypt your word.' + '\n')
@@ -32,7 +33,8 @@ def mainClipper():
         print('\n' + '\n')
         split_sentence = sentenceSplitter(sentence)
         for word in split_sentence:
-            crypted_list.append(Encryption(word, seed))
+            word_count += 1
+            crypted_list.append(Encryption(word, seed, word_count))
         crypted_sentence = " ".join(crypted_list)
         print('Encrypted Result:' + '\n')
         print(crypted_sentence)
@@ -42,7 +44,8 @@ def mainClipper():
         print('\n' + '\n')
         split_sentence = sentenceSplitter(sentence)
         for word in split_sentence:
-            crypted_list.append(Decryption(word, seed))
+            word_count += 1
+            crypted_list.append(Decryption(word, seed, word_count))
         crypted_sentence = " ".join(crypted_list)
         print('\n')
         print('Decrypted Result:' + '\n')

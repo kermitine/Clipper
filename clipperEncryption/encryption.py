@@ -5,11 +5,21 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from vars.ifArray import *
 from vars.seedGenVars import *
 
-def Encryption(word, seed):
+def Encryption(word, seed, word_count):
     seeded_list = []
     encrypted_list = []
     pop_list = []
     word_list = [char.upper() for char in word] # converts word_list to uppercase
+
+    # CLIPPER VARIABLE CIPHERKEY (experimental)
+
+    if word_count != 1:
+        if word_count % 2 == 0:
+            seed.sort()
+        else:
+            seed.sort(reverse=True)
+
+
     for x in range(len(word_list)):
         if word_list[x] in special_characters_list:
             pop_list.append(x)

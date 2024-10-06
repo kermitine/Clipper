@@ -5,13 +5,22 @@ from vars.ifArray import *
 from vars.seedGenVars import *
 
 
-def Decryption(word, seed):
+def Decryption(word, seed, word_count):
     seed_index_list = []
     letter_index_list = []
     decrypted_word_list = []
     
     word = word.upper()
     
+     # CLIPPER VARIABLE CIPHERKEY (experimental)
+
+    if word_count != 1:
+        if word_count % 2 == 0:
+            seed.sort()
+        else:
+            seed.sort(reverse=True)
+
+
     for char in word:
         letter_index_list.append(character_window_index_str[char])
     for letter_index in letter_index_list:
