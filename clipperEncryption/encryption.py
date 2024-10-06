@@ -11,6 +11,11 @@ def Encryption(word, seed, word_count):
     pop_list = []
     word_list = [char.upper() for char in word] # converts word_list to uppercase
 
+    for x in word_list:
+        if x in nums:
+            return ''.join(word_list)
+
+
     # CLIPPER VARIABLE CIPHERKEY (experimental)
 
     if word_count > 1:
@@ -19,6 +24,7 @@ def Encryption(word, seed, word_count):
         else:
             seed.sort(reverse=True)
 
+    #---------------------------------------------
 
     for x in range(len(word_list)):
         if word_list[x] in special_characters_list:
@@ -31,13 +37,10 @@ def Encryption(word, seed, word_count):
 
     for char in word_list:
         if char == 'Z':
-            seeded_list.append('Z')
+            seeded_list.append((seed[0]))
         else:
             window = character_window_index[char] # converts each 'letter' to its alphabetical index (A = 1, B = 2, etc)
             seeded_list.append(seed[window]) 
     for char in seeded_list:
-        if char == 'Z':
-            encrypted_list.append('Z')
-        else:
             encrypted_list.append(character_window_inverse_index[char]) # converts the 1-26 seed back into a letter
     return ''.join(encrypted_list)

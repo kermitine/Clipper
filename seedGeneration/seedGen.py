@@ -62,6 +62,6 @@ def seedGeneration(seed_word):
     print('Verifying...')
 
     time.sleep(gap_time)
-
+    print(''.join(seed))
     print('Seed generated successfully.' + '\n')
     return seed

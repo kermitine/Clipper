@@ -11,8 +11,13 @@ def Decryption(word, seed, word_count):
     decrypted_word_list = []
     
     word = word.upper()
+
+    for x in word:
+        if x in nums:
+            return word
+
     
-     # CLIPPER VARIABLE CIPHERKEY (experimental)
+    # CLIPPER VARIABLE CIPHERKEY (experimental)
 
     if word_count > 1:
         if word_count % 2 == 0:
@@ -20,21 +25,16 @@ def Decryption(word, seed, word_count):
         else:
             seed.sort(reverse=True)
 
+    #---------------------------------------------
+
 
     for char in word:
-        if char == 'Z':
-            letter_index_list.append('Z')
-        else:
-            letter_index_list.append(character_window_index_str[char])
+        letter_index_list.append(character_window_index_str[char])
     for letter_index in letter_index_list:
-        if letter_index == 'Z':
-            seed_index_list.append('Z')
-            pass
         for seed_index in range(len(seed)):
             if letter_index == seed[seed_index]: # if the alphabetical index of the letter matches the seed, take the index of the seed
                 seed_index_list.append(seed_index)
                 break
-        
     for num in seed_index_list:
         if num == 'Z':
             decrypted_word_list.append('Z')
