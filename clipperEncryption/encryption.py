@@ -13,7 +13,7 @@ def Encryption(word, seed, word_count):
 
     # CLIPPER VARIABLE CIPHERKEY (experimental)
 
-    if word_count != 1:
+    if word_count > 1:
         if word_count % 2 == 0:
             seed.sort()
         else:
@@ -30,8 +30,14 @@ def Encryption(word, seed, word_count):
 
 
     for char in word_list:
-        window = character_window_index[char] # converts each 'letter' to its alphabetical index (A = 1, B = 2, etc)
-        seeded_list.append(seed[window]) 
+        if char == 'Z':
+            seeded_list.append('Z')
+        else:
+            window = character_window_index[char] # converts each 'letter' to its alphabetical index (A = 1, B = 2, etc)
+            seeded_list.append(seed[window]) 
     for char in seeded_list:
-        encrypted_list.append(character_window_inverse_index[char]) # converts the 1-26 seed back into a letter
+        if char == 'Z':
+            encrypted_list.append('Z')
+        else:
+            encrypted_list.append(character_window_inverse_index[char]) # converts the 1-26 seed back into a letter
     return ''.join(encrypted_list)
