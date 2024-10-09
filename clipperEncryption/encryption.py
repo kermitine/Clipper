@@ -16,13 +16,11 @@ def Encryption(word, seed, word_count):
             return ''.join(word_list)
 
 
-    # CLIPPER VARIABLE CIPHERKEY (experimental)
+    # CLIPPER VARIABLE CIPHERKEY CVC V2.0 (experimental)
 
     if word_count > 1:
-        if word_count % 2 == 0:
-            seed.sort()
-        else:
-            seed.sort(reverse=True)
+        for x in range(word_count):
+            seed = seed[-1:] + seed[:-1] 
 
     #---------------------------------------------
 

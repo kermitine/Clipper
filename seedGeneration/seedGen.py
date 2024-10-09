@@ -32,6 +32,11 @@ def seedGeneration(seed_word):
         seed_word_list.pop(x)
 
 
+    scramble_times = seed_generation_index_int[seed_word_list[len(seed_word_list)-1]]
+    print('Scrambling')
+    for x in range(scramble_times):
+        seed_word_list = seed_word_list[-1:] + seed_word_list[:-1] 
+
     if len(seed_word_list) > 26:
         print('Word sliced')
         seed_word_list = seed_word_list[:26]
