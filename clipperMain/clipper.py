@@ -31,7 +31,7 @@ def mainClipper():
     crypted_sentence = ''
 
     if user_input in ['e', 'E']:
-        sentence = input('Enter the word you would like to encrypt:' + '\n')
+        sentence = input('Enter plaintext to be translated into Clippercrypt:' + '\n')
         print('\n' + '\n')
         split_sentence = sentenceSplitter(sentence)
         for word in split_sentence:
@@ -42,7 +42,7 @@ def mainClipper():
         print(crypted_sentence)
 
     elif user_input in ['d', 'D']:
-        sentence = input('Enter the word you would like to decrypt:' + '\n')
+        sentence = input('Enter Clippercrypt to be translated into plaintext:' + '\n')
         print('\n' + '\n')
         split_sentence = sentenceSplitter(sentence)
         for word in split_sentence:
@@ -54,7 +54,7 @@ def mainClipper():
         print(crypted_sentence)
     else:
         print('Input not recognized. Assuming encryption.')
-        sentence = input('Enter the word you would like to encrypt:' + '\n')
+        sentence = input('Enter plaintext to be translated into Clippercrypt:' + '\n')
         print('\n' + '\n')
         split_sentence = sentenceSplitter(sentence)
         for word in split_sentence:
