@@ -17,6 +17,13 @@ def sentenceSplitter(sentence):
     split_sentence = sentence.split()
     return split_sentence
 
+def slow_text_print(sentence):
+        for char in sentence:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.015)
+        return None
+
 def mainClipper():
     word_count = 0
 
@@ -39,7 +46,7 @@ def mainClipper():
             crypted_list.append(Encryption(word, seed, word_count))
         crypted_sentence = " ".join(crypted_list)
         print('Encrypted Result:' + '\n')
-        print(crypted_sentence)
+        slow_text_print(crypted_sentence)
 
     elif user_input in ['d', 'D']:
         sentence = input('Enter Clippercrypt to be translated into plaintext:' + '\n')
@@ -51,7 +58,7 @@ def mainClipper():
         crypted_sentence = " ".join(crypted_list)
         print('\n')
         print('Decrypted Result:' + '\n')
-        print(crypted_sentence)
+        slow_text_print(crypted_sentence)
     else:
         print('Input not recognized. Assuming encryption.')
         sentence = input('Enter plaintext to be translated into Clippercrypt:' + '\n')
@@ -62,7 +69,7 @@ def mainClipper():
             crypted_list.append(Encryption(word, seed, word_count))
         crypted_sentence = " ".join(crypted_list)
         print('Encrypted Result:' + '\n')
-        print(crypted_sentence)
+        slow_text_print(crypted_sentence)
 
 while True:
     mainClipper()
